@@ -1,0 +1,14 @@
+com/reactnativedadjokes/ReactNativeFlipper.java
+ com.reactnativedadjokes.ReactNativeFlipper
+ com.reactnativedadjokes.ReactNativeFlipper$1
+ com.reactnativedadjokes.ReactNativeFlipper$2
+ com.reactnativedadjokes.ReactNativeFlipper$2$1
+com/reactnativedadjokes/BuildConfig.java
+ com.reactnativedadjokes.BuildConfig
+com/reactnativedadjokes/MainActivity.java
+ com.reactnativedadjokes.MainActivity
+com/reactnativedadjokes/MainApplication.java
+ com.reactnativedadjokes.MainApplication
+ com.reactnativedadjokes.MainApplication$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
