@@ -15,12 +15,13 @@ import {styles} from './styles';
 
 Icon.loadFont();
 
-const MainApp = props => {
+const MainApp = () => {
   const [listData, setListData] = useState([]);
   const [page, setPage] = useState(1);
   const [searchText, setSearchText] = useState('');
   const [isLoading, setLoading] = useState(false);
 
+  // Render List Item
   const renderListItem = ({item}) => {
     return (
       <View style={styles.itemContainer}>
@@ -30,6 +31,7 @@ const MainApp = props => {
     );
   };
 
+  // API call
   const fetchJokesList = async url => {
     const response = await getJokesList(url);
     setLoading(false);
@@ -43,12 +45,13 @@ const MainApp = props => {
     })();
   }, [page, searchText]);
 
-  const onScrollHandler = () => {
+  // Load More Action
+  const onClickLoadMore = () => {
     setPage(page + 1);
   };
 
+  // Search Action
   const doSearch = async search => {
-    setSearchText(search);
     if (search.length > 0) {
       setSearchText(search);
     } else {
@@ -57,11 +60,12 @@ const MainApp = props => {
     setPage(1);
   };
 
+  // Render Footer View
   const renderFooter = () => {
     return (
       <TouchableOpacity
         style={styles.loadMoreStyle}
-        onPress={() => onScrollHandler()}>
+        onPress={() => onClickLoadMore()}>
         <Text style={{color: theme.COLORS.WHITE}}>Load More Jokes</Text>
       </TouchableOpacity>
     );
@@ -84,6 +88,8 @@ const MainApp = props => {
         returnKeyType="done"
       />
       <FlatList
+        key={index => index}
+        keyExtractor={item => item.id}
         style={styles.listStyle}
         data={listData}
         renderItem={item => renderListItem(item)}
