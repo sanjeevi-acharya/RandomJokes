@@ -39,10 +39,8 @@ const MainApp = () => {
   };
 
   useEffect(() => {
-    (async () => {
-      await setLoading(true);
-      await fetchJokesList(`/search?page=${page}&limit=10&term=${searchText}`);
-    })();
+    setLoading(true);
+    fetchJokesList(`/search?page=${page}&limit=10&term=${searchText}`);
   }, [page, searchText]);
 
   // Load More Action
